@@ -12,7 +12,7 @@ public class MenuItem : MonoBehaviour
     public TMPro.TMP_Dropdown dropDown;
 
 
-    private CarPartStruct _carData;
+    private CarPart _carData;
 
     private List<string> GetColorData()
     {
@@ -27,40 +27,43 @@ public class MenuItem : MonoBehaviour
         return colorNames;
     }
 
-    private Color getColorFromString(string colorName)
+    private PartColor getColorPartFromString(string colorName)
     {
-        Debug.Log(colorName);
         foreach (var c in _carData.colors)
         {
-            if (colorName == c.colorName) { return c.color; }
+            if (colorName == c.colorName) { return c; }
         }
-        //Error color
-        return Color.black;
+        return _carData.colors[0];
     }
 
 
-    public void ParseData(CarPartStruct carPart)
+    public void ParseData(CarPart carPart, ScrollMenu menu)
     {
         _carData = carPart;
 
         partTextDisplay.text = carPart.DisplayPartName;
-        cost.text = carPart.price.ToString();
+
+        //Set starting display price to default color (first element)
+        cost.text = carPart.colors[0].price.ToString();
+        carPart.SetActive(carPart.colors[0]);
 
         dropDown.ClearOptions();
         dropDown.AddOptions(GetColorData());
 
         dropDown.onValueChanged.AddListener(delegate {
-            DropdownValueChanged(dropDown);
+            DropdownValueChanged(dropDown, carPart);
+            menu.UpdatePrice();
         });
     }
 
     //Ouput the new value of the Dropdown into Text
-    void DropdownValueChanged(TMPro.TMP_Dropdown change)
+    void DropdownValueChanged(TMPro.TMP_Dropdown change, CarPart carPart)
     {
-        Color color = getColorFromString(change.options[change.value].text);
-        _carData.ChangeColor(color);
+        PartColor color = getColorPartFromString(change.options[change.value].text);
+        _carData.ChangeColor(color.color);
+        carPart.SetActive(color);
+        cost.text = carPart.activeColor.price.ToString();
     }
-
 
 
 }
