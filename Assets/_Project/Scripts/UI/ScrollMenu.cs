@@ -1,6 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.ShaderGraph.Internal;
+using System.Xml.Schema;
 using UnityEngine;
 
 public class ScrollMenu : MonoBehaviour
@@ -10,15 +9,62 @@ public class ScrollMenu : MonoBehaviour
     [SerializeField] MenuItem MenuItem;
     [SerializeField] Transform menuRoot;
 
-    [SerializeField] CarObject carData;
+    [SerializeField] TMPro.TextMeshProUGUI titleText;
+    [SerializeField] TMPro.TextMeshProUGUI priceText;
+    [SerializeField] TMPro.TextMeshProUGUI specificationText;
+
+
+    private List<MenuItem> menuItems = new List<MenuItem>();
+
+    private Car activeCar;
 
     private void Awake()
     {
-        foreach(CarPartStruct part in carData.parts)
+        CarChanger.onCarChange += LoadCarData;
+    }
+
+    private void OnDisable()
+    {
+        CarChanger.onCarChange -= LoadCarData;
+    }
+
+
+    private void LoadCarData(Car car)
+    {
+        if (menuItems != null) { ClearMenuItems(); }
+        activeCar = car;
+
+        titleText.text = car.CarDisplayName;
+
+        foreach (CarPart part in car.parts)
         {
             MenuItem item = Instantiate(MenuItem);
-            item.ParseData(part);
+            item.ParseData(part, this);
             item.transform.SetParent(menuRoot);
+            menuItems.Add(item);
         }
+        UpdatePrice();
+        specificationText.text = car.specifications.PrintSpecifications();
+
     }
+
+    public void UpdatePrice()
+    {
+        float total = 0.0f;
+        foreach (CarPart part in activeCar.parts)
+        {
+            total += part.activeColor.price;
+        }
+        priceText.text = total.ToString();
+    }
+
+    private void ClearMenuItems()
+    {
+        foreach(MenuItem item in menuItems)
+        {
+            Destroy(item.gameObject);
+        }
+        menuItems.Clear();
+    }
+
 }
