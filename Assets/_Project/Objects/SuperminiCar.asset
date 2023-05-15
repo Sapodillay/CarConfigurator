@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 418dc8e11fb7d8a4285be6a679931c7c, type: 3}
+  m_Name: SuperminiCar
+  m_EditorClassIdentifier: 
+  CarDisplayName: Super Mini Car
+  Car: {fileID: 919132149155446097, guid: c20ca414fd83e78408786d7600ee4919, type: 3}
+  parts:
+  - DisplayPartName: Body
+    price: 1000
+    Type: 0
+    PartMesh: {fileID: 3446401658588038741, guid: c20ca414fd83e78408786d7600ee4919,
+      type: 3}
+  - DisplayPartName: Body2
+    price: 100000
+    Type: 0
+    PartMesh: {fileID: 3446401658588038741, guid: c20ca414fd83e78408786d7600ee4919,
+      type: 3}
+  - DisplayPartName: Body4
+    price: 5000
+    Type: 1
+    PartMesh: {fileID: 3446401658588038741, guid: c20ca414fd83e78408786d7600ee4919,
+      type: 3}
