@@ -13,20 +13,51 @@ MonoBehaviour:
   m_Name: SuperminiCar
   m_EditorClassIdentifier: 
   CarDisplayName: Super Mini Car
-  Car: {fileID: 919132149155446097, guid: c20ca414fd83e78408786d7600ee4919, type: 3}
+  Car: {fileID: 4224007154804179776, guid: 267961f0d2a640e48887bb0fbd2797d2, type: 3}
   parts:
   - DisplayPartName: Body
     price: 1000
-    Type: 0
+    colors:
+    - color:
+        r: 1
+        g: 0
+        b: 0
+        a: 0
+      colorName: Red
+    - color:
+        r: 0
+        g: 1
+        b: 0.016897917
+        a: 0
+      colorName: Green
+    - color:
+        r: 1
+        g: 0
+        b: 0.64433
+        a: 0
+      colorName: Purple
     PartMesh: {fileID: 3446401658588038741, guid: c20ca414fd83e78408786d7600ee4919,
       type: 3}
-  - DisplayPartName: Body2
-    price: 100000
-    Type: 0
-    PartMesh: {fileID: 3446401658588038741, guid: c20ca414fd83e78408786d7600ee4919,
-      type: 3}
-  - DisplayPartName: Body4
-    price: 5000
-    Type: 1
+  - DisplayPartName: Body
+    price: 1000
+    colors:
+    - color:
+        r: 1
+        g: 0
+        b: 0
+        a: 0
+      colorName: Red
+    - color:
+        r: 0
+        g: 1
+        b: 0.016897917
+        a: 0
+      colorName: Green
+    - color:
+        r: 1
+        g: 0
+        b: 0.64433
+        a: 0
+      colorName: Purple
     PartMesh: {fileID: 3446401658588038741, guid: c20ca414fd83e78408786d7600ee4919,
       type: 3}

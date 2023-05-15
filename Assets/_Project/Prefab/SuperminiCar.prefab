@@ -859,7 +859,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2440050389225325645}
   m_LocalRotation: {x: -0.70698476, y: 0, z: -0, w: 0.7072288}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2577,6 +2577,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b8d054af542f0e49b14754da3470ed8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CarDisplayName: Super mini car
+  parts:
+  - DisplayPartName: Body
+    colors:
+    - color: {r: 1, g: 0, b: 0, a: 0}
+      colorName: Red
+      price: 1000
+    - color: {r: 0, g: 1, b: 0.026485682, a: 0}
+      colorName: Green
+      price: 1250
+    activeColor:
+      color: {r: 0, g: 0, b: 0, a: 0}
+      colorName: 
+      price: 0
+    PartMesh: {fileID: 6575072188294319171}
+  - DisplayPartName: Rear Bumper
+    colors:
+    - color: {r: 1, g: 0, b: 0, a: 0}
+      colorName: Red
+      price: 500
+    - color: {r: 0.012344122, g: 1, b: 0, a: 0}
+      colorName: Green
+      price: 250
+    activeColor:
+      color: {r: 0, g: 0, b: 0, a: 0}
+      colorName: 
+      price: 0
+    PartMesh: {fileID: 7416628218336778134}
+  - DisplayPartName: Front Bumper
+    colors:
+    - color: {r: 1, g: 0, b: 0, a: 0}
+      colorName: Red
+      price: 500
+    - color: {r: 0.011764707, g: 1, b: 0, a: 0}
+      colorName: Green
+      price: 500
+    activeColor:
+      color: {r: 0, g: 0, b: 0, a: 0}
+      colorName: 
+      price: 0
+    PartMesh: {fileID: 1511786938028046727}
+  - DisplayPartName: Side Mirrors
+    colors:
+    - color: {r: 1, g: 0, b: 0, a: 0}
+      colorName: Red
+      price: 500
+    - color: {r: 0.011764707, g: 1, b: 0, a: 0}
+      colorName: Green
+      price: 250
+    activeColor:
+      color: {r: 0, g: 0, b: 0, a: 0}
+      colorName: 
+      price: 0
+    PartMesh: {fileID: 1002462402328810749}
+  specifications:
+    EngineType: In-Line 4-Cylinder
+    Displacement: 1799 cc
+    Horsepower: 141 @ 6500 rpm
+    Torque: 127 lb-ft @ 4300rpm
 --- !u!1 &8976996661932845949
 GameObject:
   m_ObjectHideFlags: 0
